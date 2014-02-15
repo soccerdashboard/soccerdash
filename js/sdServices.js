@@ -5,7 +5,7 @@ soccerDashServices.service('statsfcService',
    function($rootScope, $http, $q) {
  
    var getTeams = function(competition, year) {
-     var url = 'http://api.statsfc.com/teams.json?key=SBCwkOLa9b8lmePuTjFIoFmFkdo9cvtAPrhxlA6k'
+     var url = 'http://api.statsfc.com/table.json?key=SBCwkOLa9b8lmePuTjFIoFmFkdo9cvtAPrhxlA6k'+
                '&competition='+ competition + '&year=' + year + '&callback=JSON_CALLBACK';
 
      var d = $q.defer();
