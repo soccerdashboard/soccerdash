@@ -1,14 +1,14 @@
 var soccerDashControllers = angular.module('soccerDashControllers', ['soccerDashServices', 'firebase', 'ngAnimate']);
  
-soccerDashControllers.controller("LeagueTblCtrl", ["$scope",
+soccerDashControllers.controller("LeagueTblCtrl", ["$rootScope", "$scope",
 
-	function($scope){    
+	function($rootScope, $scope){    
 		//Give a class 'favorite' to the favorite team's data, enabling highlighting @ view
-    console.log($scope.teams)
+    console.log($rootScope.teams)
     $scope.isFavorite= function(){
-    	for (var n in $scope.teams) {
-	    	if ($scope[teams][n][team] === $scope.favorite){
-	    		$scope.teams.team.favorite = true; 
+    	for (var n in $rootScope.teams) {
+	    	if ($rootScope[teams][n][team] === $scope.favorite){
+	    		$rootScope.teams.team.favorite = true; 
 	    	}
 	    }
     }
@@ -50,10 +50,10 @@ soccerDashControllers.controller('IndexController',
     });
 
     // Array of team objects 
-			statsfcService.getTeams('premier-league', '2013/2014' )
-			.then(function(data) {
-			  $scope.teams = data;
-			});
+			// statsfcService.getTeams('premier-league', '2013/2014' )
+			// .then(function(data) {
+			//   $scope.teams = data;
+			// });
 		//to do- load favorite from firebase
 			$scope.favorite = "Liverpool";
 
@@ -80,16 +80,15 @@ soccerDashControllers.controller("LoginController", ["$scope",
 
 }]);
 
-soccerDashControllers.controller("MiniLeagueCtrl", ["$scope", 
+soccerDashControllers.controller("MiniLeagueCtrl", ["$rootScope", "$scope", 
 
-	function($scope){  
+	function($rootScope, $scope){  
 		//Copy the data from 'teams' to 'favoriteTeam' for 
 		//the miniLeague Page 
-		console.log($scope.teams, $scope.favorite)
-  	for (var n in $scope.teams) {
-  		console.log('favteam', $scope.teams[n])
-    	if ($scope.teams[n].team === $scope.favorite){
-    		$scope.favoriteTeam = $scope.teams[n];
+		var teams = $rootScope.teams;
+  	for (var n in teams) {
+    	if (teams[n].team === $scope.favorite){
+    		$scope.favoriteTeam = teams[n];
 
     	}
   	}
