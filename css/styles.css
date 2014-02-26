@@ -62,17 +62,10 @@ table {
 /* font-family: 'PT Sans Narrow', sans-serif; */
 
 /* Main Styles */
-/* Main Styles */
-html {
-  background: url(../img/anfield-the-kop.gif) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 body {
   font-size: 100%;
   color: #333;
+  background-color: #f1f1f2;
   font-family: 'PT Sans Narrow', sans-serif;
   box-sizing: border-box;
 }
@@ -101,17 +94,14 @@ ul {
 }
 .login h1,
 .login h2 {
-  color: #fff;
+  color: #333;
 } 
 .login-button,
-header button,
 .widget-link,
 .expanded-widget .back {
-  font-family: 'Fjalla One', sans-serif;
   font-size: 100%;
   margin: 0 auto;
   padding: 1% 4%;
-  border-radius: 12px;
   background-color: #782d30;
   border: none;
   color: #fff;
@@ -125,39 +115,45 @@ header button,
 
 /* Navigation */
 header {
-  position: relative; 
+  position: relative;
+  background-color: #3c4651;
+  margin-bottom: 2%; 
 }
-header h1 {
-  margin-top: 1%;
-  text-align: center;
+header ul li {
+  float: left;
+  display: inline-block;
+  padding: 1% 1%;
   color: #fff;
-  font-size: 150%;
 }
-header button {
-  font-size: 100%;
-  padding: 1%;
-  position: absolute;
-  top: 2%;
-  left: 2%;  
+header ul li:first-child {
+  border-right: 1px solid #60636f;
+  cursor: pointer;
 }
-nav {
+.menu {
   position: absolute;
+  width: 30%;
+  height: 94vh;
+  color: #fff;
+  background-color: #3c4651;
+  opacity: 0;
+  left: -31%;
   z-index: 100;
-  clear: both;
-  width: 25%;
-  color: #fff;
-  background-color: #17171a;
-  opacity: .85;
 }
 nav ul li {
-  padding: 1% 2%;
-  border-bottom: 1px solid #52526e;
+  padding: 1.75% 2%;
+  border-bottom: 1px solid #60636f;
+}
+nav ul li:first-child {
+  border-top: 1px solid #60636f;
 }
 nav li a {
-  color: #efe948;
+  color: #cf3434;
   text-decoration: none;
   display: inline-block;
   width: 100%;
+}
+nav li a:hover {
+  color: #F53D3D ;
 }
 .team-inset {
   padding-left: 7.5%;
@@ -165,14 +161,6 @@ nav li a {
 .close,
 .logout {
   color: #fff;
-}
-
-/* Nav animation */
-.animate {
-  -webkit-transition: .5s linear all;
-}
-.animate.ng-hide-remove {
-  opacity: 0;
 }
 
 /* Widget Positioning*/
@@ -184,7 +172,6 @@ nav li a {
 .widget-container {
   min-height: 42vh;
   width: 35%;
-  border-radius: 12px;
   background-color: #fff;
   opacity: .85;
   position: relative;
