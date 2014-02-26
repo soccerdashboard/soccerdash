@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="soccerDashApp">
 <head>
+  <script src="lib/jquery/jquery-1.10.2.js"></script>
   <title>SoccerDash</title>  
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
@@ -8,7 +9,7 @@
 <body>
 
   <!-- Main container --> 
-  <div ng-controller="IndexController" class="main">
+  <div ng-controller="IndexController">
     <div ng-view></div>
   </div>
 
@@ -17,7 +18,7 @@
   <!-- I added this library in the lib folder to avoid complaints about not being https --> 
   <script src="lib/dimplejs/dimple.v1.1.5.js"></script>
   <!-- jQuery Resources -->
-  <script src="lib/jquery/jquery-1.10.2.js"></script>  
+    
   <!-- Angular Resources -->
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
