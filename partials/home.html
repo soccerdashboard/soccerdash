@@ -1,19 +1,20 @@
-<header>
-  <h1 ng-model="teamName">Showing Stats for: {{ currentTeam.team }}</h1>
-  <button ng-click="showNav()">Navigation</button>
+<header class="group">
+  <ul>
+    <li class="toggle">Welcome {{ user.displayName }}!</li>
+    <li ng-model="teamName">Showing Stats for: {{ currentTeam.team }}</li>
+  </ul>
+</header>  
   <!-- Left menu -->
-  <nav>
-    <ul ng-model="selected" ng-show="selected" class="animate">
-      <li>SoccerDash</li>
-      <li>Welcome {{ user.displayName }}!</li>
-      <li>Select a Different Team</li>
-      <li ng-repeat="team in teams" class="team-inset"><a href='#' ng-click="selectCurrentTeam(team)" data-team="{{ team.teampath }}">{{ team.team }}</a></li>
-      <li><a href="" ng-click="hideNav()" class="close">Close Menu</a></li>
-      <li><a href="#" ng-click="loginObj.$logout()" class="logout">Logout</a></li>
-    </ul>
-  </nav>
-
-</header>
+<nav class="menu">
+  <ul>
+    <li>SoccerDash</li>
+    <li>Welcome {{ user.displayName }}!</li>
+    <li>Select a Different Team</li>
+    <li ng-repeat="team in teams" class="team-inset"><a href='#' ng-click="selectCurrentTeam(team)" data-team="{{ team.teampath }}">{{ team.team }}</a></li>
+    <li><a href="" ng-click="hideNav()" class="close">Close Menu</a></li>
+    <li><a href="#" ng-click="loginObj.$logout()" class="logout">Logout</a></li>
+  </ul>
+</nav>
 
 <!-- Widgets -->
 
