@@ -6,12 +6,19 @@ angular.module('teamTopScorersControllerModule', ['soccerDashServices'])
 
   $scope.$watch('currentTeam', function(newVal, oldVal, scope) {
     if(newVal) {
-      $scope.showGoal = false;
+      $scope.showLoading = true;
 
       statsfcService.fetchData(getTeamTopScorersUrl(newVal.teampath))
       .then(function(data) {
-        $scope.goalData = data.slice(0,8);
-        $scope.showGoal = true;
+        if (data.error === undefined) {
+          $scope.goalData = data.slice(0,8);
+          $scope.showLoading = false;
+          $scope.showGoal = true;
+        } else {
+          $scope.showLoading = false;
+          $scope.showError = true;
+          $scope.error = data.error;
+        }
       });
     }
   });
