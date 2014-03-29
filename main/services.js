@@ -22,9 +22,6 @@ soccerDashServices.service('statsfcService',
             soccerDashServices.cache.cachedResults = {data: data, cached: true};
             soccerDashServices.cache.lastCachedAt = new Date();
             d.resolve(result);
-          })
-          .error(function(data, status, headers) {
-            d.reject(data);
           });
         }
 
@@ -32,15 +29,11 @@ soccerDashServices.service('statsfcService',
       };
 
       var fetchData = function(urlString) {
-        var url = urlString;  
-
-        var config = {
-          cache: true
-        };
+        // var url = urlString;  
 
         var d = $q.defer();
 
-        $http.jsonp(url, config)
+        $http.jsonp(urlString)
         .success(function(data, status, headers) {
           d.resolve(data);
         })
